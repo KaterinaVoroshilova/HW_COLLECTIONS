@@ -1,25 +1,26 @@
 package ru.netology.game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
-    List<Player> players = new ArrayList<>();
+    HashMap<String,Player> players = new HashMap<>();
 
-    public List<Player> register(Player player) {
-        players.add(player);
+    public HashMap<String,Player> register(Player player) {
+        players.put(player.name, player);
         return players;
     }
 
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
-        for (Player player : players) {
-            if (player.name == playerName1) {
-                player1 = player;
+        for (String name : players.keySet()) {
+            if (name == playerName1) {
+                player1 = players.get(name);
             }
-            if (player.name == playerName2) {
-                player2 = player;
+            if (name == playerName2) {
+                player2 = players.get(name);
             }
         }
         if (player1 == null) {
