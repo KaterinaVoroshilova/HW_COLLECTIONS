@@ -15,10 +15,10 @@ public class Game {
         Player player1 = null;
         Player player2 = null;
         for (Player player : players) {
-            if (player.name == playerName1) {
+            if (player.name.equals(playerName1)) {
                 player1 = player;
             }
-            if (player.name == playerName2) {
+            if (player.name.equals(playerName2)) {
                 player2 = player;
             }
         }
