@@ -8,21 +8,16 @@ public class Game {
     HashMap<String,Player> players = new HashMap<>();
 
     public HashMap<String,Player> register(Player player) {
-        players.put(player.name, player);
+        players.put(player.getName(), player);
         return players;
     }
 
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
-        for (String name : players.keySet()) {
-            if (name == playerName1) {
-                player1 = players.get(name);
-            }
-            if (name == playerName2) {
-                player2 = players.get(name);
-            }
-        }
+
+        player1 = players.get(playerName1);
+        player2 = players.get(playerName2);
         if (player1 == null) {
             throw new NotRegisteredException("Element with name: " + playerName1 + " not registered");
         }
